@@ -1,0 +1,43 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="chart_div"></div>
+
+<script type="text/javascript">
+
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Place', 'Percent',],
+        ['Overall', 54],
+        ['At Work', 30],
+        ['From Someone Who Had Influence At Work', 23]
+      ]);
+
+      var options = {
+        title: "Womens' Experiences of Unwanted Sexual Advances and the Workplace",
+        chartArea: {width: '100%'},
+        hAxis: {
+          minValue: 0
+        },
+        vAxis: {
+          textPosition: 'in',
+          'textStyle': { color: 'black', 'stroke': 0, auraColor: 'none'},
+
+        },
+        legend: { position: "none" },
+        animation: {
+                    duration: 1000,
+                    easing: 'out',
+                    startup: true
+                },
+        fontSize: 14
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+
+</script>

@@ -1,0 +1,39 @@
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+          ['Year', 'Charges Filed for Sexual Harassment in the Workplace', { role: 'style' }, {role: 'tooltip'}],
+          [ 2010, 12695, '#B85C48', "2010: 12,695"],
+          [ 2011, 12461, '#B85C50', "2011: 12,461"],
+          [ 2012, 12569, '#B85C90', "2012: 12,569"],
+          [ 2013, 12379, '#B85D00', "2013, 12,379"],
+          [ 2014, 12146, '#B85D40', "2014, 12,146"],
+          [ 2015, 12573, '#B85D48', "2015, 12,573"],
+          [ 2016, 12860, '#B85D90', "2016, 12,860"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+     
+
+      var options = {
+        hAxis: {title: 'Year', format: '####', minValue: 2010, maxValue: 2016},
+        vAxis: {title: 'Charges Filed', format: '####', minValue: 12000 , maxValue: 13000},
+        title: "Charges Filed for Sexual Harassment in the Workplace",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+        animation: {
+                    duration: 1000,
+                    easing: 'out',
+                    startup: true
+                }
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+<div id="columnchart_values" style="width: 900px; height: 300px;"></div>
